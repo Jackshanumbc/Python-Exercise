@@ -1,0 +1,15 @@
+while True:
+    num = input('Please input an integer:')
+    
+    try:
+        num = int(num)
+    except:
+        print('Please input an integer!')
+        break
+    
+    if num%2 == 1:
+        print('Your input ' +str(num)+ ' is an odd.')
+    else:
+        print('Your input ' +str(num)+ ' is an even.')
+        if num % 4 ==0:
+            print('And your input '+str(num)+' is also a multiple of 4!')     
