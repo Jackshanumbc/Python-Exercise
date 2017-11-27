@@ -1,0 +1,12 @@
+import time
+
+name = input('Please intput your name:')
+age = input('Please input your age:')
+
+#get current year
+
+Current_year =time.strftime('%Y', time.localtime(time.time()))
+
+year = str(int(Current_year)-int(age) + 100)
+
+print(name + ': in ' + year + ', you will be 100 age')
