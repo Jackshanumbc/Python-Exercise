@@ -1,0 +1,14 @@
+num = input('Please input an int num:')
+lst =list()
+
+try:
+    num = int(num)
+except:
+    print('Please input an int num!')
+        
+for i in range(num-1):  # range(x, y): output x, x+1, ... y-x+1.
+    if num%(i+1) == 0:
+        lst.append(i+1)
+        
+print('All of the divisors of your input num ' + str(num) + ' is:')
+print(lst)
