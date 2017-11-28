@@ -1,0 +1,14 @@
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b =[]
+
+control_num = input('Please enter an int num:')
+try:
+    control_num1 = int(control_num)
+except:
+    print('Please enter an int num!')
+
+for element in a: 
+    if element< int(control_num): 
+        b.append(element)
+print('The smaller than '+ control_num+ ' list is: ')
+print(b)
