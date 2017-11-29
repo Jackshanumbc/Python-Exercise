@@ -1,0 +1,10 @@
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+lst = list()
+'''
+for i in range(len(a)):
+    if a[i]%2 ==0:
+        lst.append(a[i])
+'''
+for ele in a:
+    if ele%2==0: lst.append(ele)
+print(lst)
