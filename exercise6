@@ -1,0 +1,15 @@
+input = input('Please enter a string:')
+
+len = len(input)
+midd = int(len/2)
+x = 1
+for i in range(midd):
+    if input[i] == input[len-1]:
+        len = len-1
+    else:
+        x = 0
+        print('Your input '+input+' is not a palindrome')
+        break
+if x== 1:
+    print('Your input '+input+' is a palindrome')
+    
