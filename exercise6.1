@@ -1,0 +1,27 @@
+#two better answers
+
+# string reversal string[::-1]
+'''
+input = input('Please enter a string:')
+
+if input == input[::-1]:
+    #print(input[::-1])
+    print('Your input string '+ input + ' is a palindrome')
+else:
+    print('Your input string '+ input + ' is a not palindrome')
+'''
+
+# def function
+
+def reversal (string):
+   x = ''
+   for i in range(len(string)-1):
+      x = x + string[len(string)-1-i]
+      
+input = input('Please enter a string:')
+      
+if input == reversal(input):
+         #print(input[::-1])
+         print('Your input string '+ input + ' is a palindrome')
+else:
+         print('Your input string '+ input + ' is a not palindrome')      
