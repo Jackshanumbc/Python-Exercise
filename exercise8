@@ -1,0 +1,55 @@
+# encoding: utf-8
+
+def game_break ():
+        x = 1
+        f1 = input('Player1, please intput (1 indicates you want to continue, others not):')
+        f2 = input('Player2, please intput (1 indicates you want to continue, others not):')
+        if f2 == '1' and f1 != '1':
+                print('player1 does’t not want to play, player2 wants to continue. Game is over.')
+                #break
+        if f1 =='1' and f2 != '1':
+                print('player2 does’t not want to play, player1 wants to continue. Game is over.')
+                #break
+        if f1 == '1' and f2 == '1':
+                x = 0
+        if f1 != '1' and f2 !='1':
+                print('both of them don’t want to play')
+        return x
+
+def check_input(string):
+        if string =='rock' or string == 'scissors' or string == 'paper': return string
+        else:
+                string = input('Please choose one to input from (rock, scissors, paper):')
+                check_input(string)
+        return string
+            
+
+while True:
+        play1 = input('Player1, please choose one to input from (rock, scissors, paper):')
+        play1 = check_input(play1)                
+        play2 = input('Player2, please choose one to input from (rock, scissors, paper):')
+        play2 = check_input(play2) 
+    
+        if play1 == play2:
+                print('no winners! \n If you both want to continue to play, then input 1 for each')
+                x = game_break ()
+                if x == 1: break
+        if play1 =='rock' and play2 =='scissors': 
+                print('play1 wins! Both of you could choose to continue or stop')
+                x = game_break()
+                if x== 1: break
+        if play1 == 'rock' and play2 =='paper':
+                print('play2 wins! Both of you could choose to continue or stop')
+                if game_break() == 1: break
+        if play1 == 'scissors' and play2 == 'rock':
+                print('play2 wins! Both of you could choose to continue or stop:')
+                if game_break() == 1: break
+        if play1 == 'scissors' and play2 == 'paper':
+                print('play1 wins! Both of you could choose to continue or stop:')
+                if game_break() == 1: break
+        if play1 == 'paper' and play2 == 'scissors':
+                print('play2 wins! Both of you could choose to continue or stop:')
+                if game_break() == 1: break
+        if play1 == 'paper' and play2 == 'rock':
+                print('play1 wins! Both of you could choose to continue or stop:')
+                if game_break() == 1: break    
