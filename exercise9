@@ -1,0 +1,35 @@
+import random as rm
+
+x = rm.randint(1,9)
+#print(x)
+count = 0
+while True:
+    num = input('Please enter a num among 1-9, including 1 and 9:')
+    try: 
+        num = int(num) 
+    except:
+        print('Please just enter a num among 1-9, including 1 and 9:')
+        continue
+    if num<1 or num>10:
+        print('Please just enter a num among 1-9, including 1 and 9:')
+        continue
+    if num == x: 
+        count = count+1
+        print('You guess is right and your guessing time is '+ str(count))
+        break
+    elif num > x: 
+        print('Your guess is bigger than the right num, you can choose to exit by inputing exit')
+        if input('Please input your choose:') == 'exit': 
+            print('Guess is over and your guess is bigger than the right num')
+            break
+        else:
+            count = count+1
+            continue
+    else:
+        print('Your guess is smaller than the right num, you can choose to exit by inputing exit')
+        if input('Please input your choose:') == 'exit': 
+            print('Guess is over and your guess is smaller than the right num')
+            break
+        else:
+            count = count+1
+            continue        
