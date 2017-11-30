@@ -1,0 +1,16 @@
+import random
+
+lst1 = list()
+lst2 = list()
+lst3 = list()
+
+for i in range(20): # list length could be controlled by user inputing
+    lst1.append(random.randint(1,100)) 
+for i in range(30):
+    lst2.append(random.randint(1,200))
+for ele in lst1:
+    if ele in lst2:
+        lst3.append(ele)
+    
+print('The common elements of list: ', lst1, ' and list ', lst2, ' are:')
+print(lst3)
