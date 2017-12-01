@@ -1,0 +1,17 @@
+def Fibonnaci(i):
+    if i<3: return 1    
+    return Fibonnaci(i-1)+Fibonnaci(i-2)
+    
+lst =list()
+while True:
+    num = input('Please enter your desired Fibonnaci num:')
+    try:
+        num = int(num)
+    except:
+        print('Please enter a numerical number!')
+        continue
+    for i in range(1, num+1):
+        lst.append(Fibonnaci(i)) 
+        #print(2)
+    print('Your desired length Fibonnaci is: ',lst)
+    break
