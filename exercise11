@@ -1,0 +1,27 @@
+# encoding: utf-8
+
+def prime(string):
+    if int(string) ==2: return True
+    for i in range(2, int(string)):
+        
+        if int(string)%i == 0:
+            #print(i)
+            return False
+    return True
+        
+
+
+while True:
+    string = input('Please input a num:')
+    try:
+        int(string)
+    except:
+        print('Please input a numeric num!')
+        continue
+    if prime(string):
+        print('The input is not a prime')
+        break
+    else:
+        print('The input is a prime')
+        break
+        
