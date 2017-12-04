@@ -1,0 +1,11 @@
+file = input('Please enter a sentence with whitespace to split every word:')
+lst2 = list()
+def string_re(string):
+    lst = str(string).split()
+    
+    for i in range(len(lst)):
+        lst2.append(lst[len(lst)-i-1])
+    return ' '.join(lst2)
+
+
+print(string_re(file))
