@@ -1,0 +1,18 @@
+list = [1, 2, 'q', 3, 1, 'x']
+
+def dup_del1 (list):
+    new_list = []
+    
+    for x in list:
+        if x not in new_list: new_list.append(x)
+        
+    return new_list
+
+def dup_del2 (list):
+    return set(list)
+
+
+print(list)
+
+print('dup_del1: ', dup_del1(list))
+print('dup_del2: ', dup_del2(list))
