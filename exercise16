@@ -1,0 +1,26 @@
+# coding: utf-8
+
+#password generator
+
+import random
+import string
+
+def passgenerator (ans):
+    if ans == 'strong':
+        return ''.join(random.sample(string.ascii_letters + string.digits,8))
+    else:
+        return ''.join(random.sample(string.digits,8))
+    
+
+while True:
+    
+    ans = input('Please input what types of passward you want to generate (strong or normal): ')
+    if ans == 'strong' or 'normal': 
+        print('The passward generated is:',passgenerator(ans))
+        print('You can choose to continue to generator new passward by input yes or no')
+        key = input()
+        if key=='yes': continue
+        elif key=='no': break
+    else: 
+        print('Please choose from strong and normal')
+        continue
