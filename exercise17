@@ -1,0 +1,22 @@
+# pip install bs4 first
+
+# coding: utf-8
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.nytimes.com/'
+
+r = requests.get(url)
+
+r_html = r.text
+
+soup = BeautifulSoup(r_html, 'html.parser')
+#title = soup.find('span', 'articletitle').string
+
+#show = soup.prettify()
+
+#title = soup.title
+
+for titles in soup.find_all('h2', {'class': 'story-heading'}):  
+    if titles.string == None:  continue
+    print(titles.string)
