@@ -1,0 +1,27 @@
+# coding : utf-8
+# string is callable, but int not
+import random
+
+number = str(random.randint(0,10000)) #random generate one 0-9999 int number
+
+def compare(number, guess): # every guess should compare
+    result = [0,0]
+    for i in range(len(number)):
+        if number[i] == guess[i]: result[0]+=1
+        elif guess[i] in  number: result[1]+=1
+    return result
+
+guess_num = 0
+while True:
+    guess= input('Please input a 4 digit number:')
+    guess_num += 1
+
+    print('You got ', compare(number, guess)[0], ' cows and ',compare(number, guess)[0], ' bulls')
+    print('You guessed',guess_num, 'times and you could choose to exit or continue' )
+    choice = input('if you want to exit, please input exit:')
+    if choice == 'exit': 
+        print('You guessed', guess_num, 'times')
+        break
+    else: continue
+    
+        
