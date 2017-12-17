@@ -1,0 +1,25 @@
+# coding:utf-8
+# soup.findAll('ele',{'class:','classvalue'}) find all contents of the label ele with its classvaule 
+import requests
+
+from bs4 import BeautifulSoup
+
+url = 'https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture'
+
+url_html = requests.get(url, headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36'})
+
+url_doc = url_html.text
+
+soup = BeautifulSoup(url_doc)
+'''
+for p in soup.select('section > p'):
+    if p.string is None: continue
+    print(p.string,'\n')'''
+
+data1 = soup.findAll('div', {'class:', 'dek'})
+data2 = soup.findAll('section', {'class', 'content-section'})
+for item in data1:
+    print(item.string)
+    
+for item in data2:
+    print(item.text, '\n')
