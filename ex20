@@ -1,0 +1,53 @@
+# coding: utf-8
+
+# 1.normal search a number in a list
+# 2.binary search a number in a list
+# 3.compare time used individually
+
+import time
+
+def time_cal (function):
+    start = time.clock()
+    function
+    elapsed = (time.clock()-start)
+    print('Time used: ', elapsed)
+    
+def normal_search (x, list):
+    if x in list:
+        print('Num ',x,' is in the list ',list)
+    else: print('Num ',x,' is not in the list ',list)
+    
+def binary_search(x, list):
+    x = int(x)
+    i = 1
+    list1 = list
+    if x > int(list[len(list)-1]) or x < int(list[0]): 
+        print('Num ',x,' is not in the list ',list1)
+        return 0    
+    while i !=0:
+        i = int(len(list)/2) 
+        #print(i)
+        if int(list[i]) > x:
+            list = list[:i]
+            #print(list)
+            continue
+        elif int(list[i]) < x: 
+            list = list[i:]
+            continue
+        else: 
+            print('Num ',x,' is in the list ',list1)
+            return 1
+    print('Num ',x,' is not in the list ',list1)
+    return 0
+
+#lst = [ 1, 3, 6, 8, 10, 14, 27, 19]
+
+line = input('Please input a line of ordered list divided by space:')
+
+lst = line.split()
+
+x = input('Please input the num you want to search in the list you put:')
+
+time_cal(normal_search(x,lst))
+time_cal(binary_search(x,lst))
+
