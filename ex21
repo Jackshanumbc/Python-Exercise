@@ -1,0 +1,10 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.nytimes.com/' 
+url_htm = requests.get(url, headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36'})
+soup = BeautifulSoup(url_htm.text)
+with open('title.txt' , 'w', encoding='utf-8') as op:
+    for line in soup.findAll('h2',{'class:','story-heading'}):
+        print(line.string)
+        if line.string is not None: op.write(line.string+'\n')
