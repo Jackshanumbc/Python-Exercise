@@ -1,0 +1,24 @@
+# coding: utf-8
+
+def fileread(filedic):
+    lst = list()
+    fh = open(filedic)
+    for line in fh.readlines():
+        lst.append(line.strip())
+    return lst
+
+prime_list = []
+happy_list = []
+overlap_list = []
+
+prime_list = fileread('primenumbers.txt')
+happy_list = fileread('happynumbers.txt')
+
+
+for x in prime_list:
+    if x in happy_list and x not in overlap_list:
+        overlap_list.append(x)
+        
+print'The overlap elements between these two lists are : \n', overlap_list
+        
+    
