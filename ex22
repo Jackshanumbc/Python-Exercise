@@ -1,0 +1,23 @@
+# coding:utf-8
+
+def lst_count (lst):
+    dic_count = dict()
+    for x in lst:
+        if x in dic_count.keys(): dic_count[x] = dic_count[x]+1
+        else: dic_count[x] = 1
+    return dic_count
+
+lst= list()
+fh = open('nameslist.txt' , 'r')
+for line in fh.readlines():
+    line = line.strip()
+    #print(line)
+    lst.append(line.strip())
+#print(lst)
+dic = dict()
+dic = lst_count(lst)
+
+print 'Element','\t\t''Counts'
+
+for key, items in dic.items():
+    print key, '\t\t\t',items
