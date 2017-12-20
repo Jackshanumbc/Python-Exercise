@@ -1,0 +1,45 @@
+# coding: utf-8
+print('Please input a temporary 3*3 game result,\n meaning choosing 9 numbers from [0, 1, 2] \n with whitespace between each number\n \
+Note: please give one winners!')
+
+line = input()
+regu_chess = list()
+regu_chess1 = list()
+regu_chess2 = []
+regu_chess3 = []
+count = 0
+for i in line.strip().split():
+    i = int(i)
+    if count<3: regu_chess1.append(i)
+    elif count<6: regu_chess2.append(i)
+    else: regu_chess3.append(i)
+    count += 1
+    
+print('The chess you input is:\n')
+print(regu_chess1)
+print(regu_chess2)
+print(regu_chess3)
+
+regu_chess.append(regu_chess1) # regu_chess can be formed in this code itself
+regu_chess.append(regu_chess2)
+regu_chess.append(regu_chess3)
+
+while True:
+    if regu_chess[0][0] == regu_chess[1][1]== regu_chess[2][2] == 1  or \
+           regu_chess[0][2] == regu_chess[1][1]== regu_chess[2][0] == 1: 
+        print('Player1 wins')
+        break
+    elif regu_chess[0][0] == regu_chess[1][1]== regu_chess[2][2] == 2  or \
+        regu_chess[0][2] == regu_chess[1][1]== regu_chess[2][0] == 2:
+        print('Player2 wins')
+        break 
+    else:
+        for i in range(3):
+            if regu_chess[i][0] == regu_chess[i][1] == regu_chess[i][2] == 1 or \
+               regu_chess[0][i] == regu_chess[1][i] == regu_chess[2][i] == 1:
+                print('Player1 wins')
+                break
+            elif regu_chess[i][0] == regu_chess[i][1] == regu_chess[i][2] == 2 or \
+                regu_chess[0][i] == regu_chess[1][i] == regu_chess[2][i] == 2:
+                print('Player2 wins')
+                break
