@@ -1,0 +1,10 @@
+# coding: utf-8
+def max_of_3(x,y,z):
+    max = x
+    if max<y: max = y
+    if max<z: max = z
+    return max
+if __name__ =='__main__':
+    print('Please input three numbers with whitespace\n')
+    num = input().strip().split()
+    print('The largest num of your input is: ',max_of_3(int(num[0]),int(num[1]),int(num[2])))
