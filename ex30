@@ -1,0 +1,12 @@
+# coding: utf-8
+import random as rd
+def random_choice(filename):
+    lst = list()
+    fh = open(filename, 'rt',encoding='utf-8')
+    for line in fh.readlines():
+        lst.append(line.strip())
+    x = rd.randint(1,len(lst))
+    return lst[x-1]
+
+if __name__ == '__main__':
+    print('The random word is: ',random_choice('sowpods.txt'))
