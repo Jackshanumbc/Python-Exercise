@@ -1,0 +1,135 @@
+# coding: utf-8
+# size = 3 player
+#import ex24
+from ex24 import line
+
+def check(coordinate, game):
+    if game[int(coordinate[0])][int(coordinate[1])] == 0: 
+        #print(game)
+        return True
+    else:return False    
+    
+def play(player):    
+    if player == 'player1': 
+        S = 'X'
+        Z = 'X'
+    else: 
+        S = 'O'
+        Z = 'O'
+    print(player, 'please input the row and column with a comma between them for your chess.\n')
+    coordinate = input().strip().split(',')
+    #print(coordinate)
+    if check(coordinate, game): 
+        print(game)
+        game[int(coordinate[0])][int(coordinate[1])] = S
+        Z = Z + '1'
+        print(game)
+        return Z
+    else: 
+        print(player, 'you input a square filled with a chess, please select a new space')
+        Z = Z + '2'
+        return Z
+    
+def check_con():
+    x = 0
+    for i in range(size):
+        for j in range(size):
+            if game[i][j] ==0: x += 1
+    if x == 4 :  
+        print('The final result is:\n',game) 
+        return True
+    else: return False
+    
+def check_result(regu_chess):
+    x=0
+    #len = len(regu_chess)
+    while x==0:
+        
+        if regu_chess[0][0] == regu_chess[1][1]== regu_chess[2][2] == 'X'  or \
+               regu_chess[0][2] == regu_chess[1][1]== regu_chess[2][0] == 'X': 
+            print('Player1 wins')
+            x = 1
+            break
+        if regu_chess[0][0] == regu_chess[1][1]== regu_chess[2][2] == 'O'  or \
+            regu_chess[0][2] == regu_chess[1][1]== regu_chess[2][0] == 'O':
+            print('Player2 wins')
+            x = 2
+            break
+        for i in range(3):
+            if regu_chess[i][0] == regu_chess[i][1] == regu_chess[i][2] == 'X' or \
+                   regu_chess[0][i] == regu_chess[1][i] == regu_chess[2][i] == 'X':
+                print('Player1 wins')
+                x = 1
+                break
+            if regu_chess[i][0] == regu_chess[i][1] == regu_chess[i][2] == 'O' or \
+                    regu_chess[0][i] == regu_chess[1][i] == regu_chess[2][i] == 'O':
+                print('Player2 wins')
+                x = 2
+                break
+    
+        if x == 0: 
+            
+            break
+    return x 
+    
+def gamification():
+    Z = 0
+    i = 0
+    while True:
+        if i == 9: 
+            print('The final result is:\n',game) 
+            break    
+        if Z ==  0  :  
+            Z = play('player1') 
+            if check_result(game) != 0: return check_result(game)
+            
+        i += 1
+        #print(i)
+        if Z == 'X1': 
+            Z = play('player2')
+            if check_result(game) != 0:  return check_result(game)
+            if Z == 'O1': i += 1
+        #print(i)
+            continue
+        if Z == 'X2': 
+            Z = play('player1')
+            if check_result(game) != 0: return check_result(game)
+            if Z == 'X1': i += 1
+            continue
+        if Z == 'O1': 
+            Z = play('player1')
+            if check_result(game) != 0: return check_result(game)
+            if Z == 'X1': i +=1
+        #print(i)
+            continue
+  
+        if Z == 'O2':   
+            Z = play('player2')
+            if check_result(game) == 1: return 1
+            if Z == 'O1': i += 1
+            continue
+
+# when other py file extend this py's function, this line will be useful, please refer to ex24
+if __name__ == '__main__':   
+    x1 = 0
+    x2 = 0
+    x  = 0
+    while x == 0:
+        print('Game Star!\n You can choose your game player type \n [select1, select2, select3]!')
+        if input().strip() == 'select1' or 'select2' or 'select3': size = 3
+        game = [[0]*size for x in range(size)]
+        print('Initialize game is: \n')
+        line(size)
+        
+        if x==0 and gamification()==1:
+            x1 +=1
+            print(x1)
+            x = 1
+        if x==0 and gamification() == 2:
+            x2 +=1
+            print(x2)
+            x = 1
+        if x ==1:
+            print('Player1 wins',x1,'times.', 'Player2 wins', x2, 'times.')
+            print('Players could input 0 for continue the game and 1 for exit')
+            x = int(input())    
