@@ -1,0 +1,90 @@
+# coding: utf-8
+#import ex24
+from ex24 import line
+
+def check(coordinate, game):
+    if game[int(coordinate[0])][int(coordinate[1])] == 0: 
+        #print(game)
+        return True
+    else:return False    
+    
+def play(player):    
+    if player == 'player1': 
+        S = 'X'
+        Z = 'X'
+    else: 
+        S = 'O'
+        Z = 'O'
+    print(player, 'please input the row and column with a comma between them for your chess.\n')
+    coordinate = input().strip().split(',')
+    #print(coordinate)
+    if check(coordinate, game): 
+        print(game)
+        game[int(coordinate[0])][int(coordinate[1])] = S
+        Z = Z + '1'
+        print(game)
+        return Z
+    else: 
+        print(player, 'you input a square filled with a chess, please select a new space')
+        Z = Z + '2'
+        return Z
+    
+def check_con():
+    x = 0
+    for i in range(size):
+        for j in range(size):
+            if game[i][j] ==0: x += 1
+    if x == 4 :  
+        print('The final result is:\n',game) 
+        return True
+    else: return False
+
+print('Game Star!\nPlease input the game size!')
+
+size = input()
+size = int(size)
+'''
+game = list()
+game1 = list()
+for j in range(size):
+    game1.append(0)
+for j in range(size):
+    game.append(game1)
+
+'''
+game = [[0]*size for x in range(size)]
+print('Initialize game is: \n')
+line(size)
+
+Z = 0
+i = 0
+while True:
+    if i == 4: 
+        print('The final result is:\n',game) 
+        break    
+    if Z ==  0  :       
+        Z = play('player1') 
+        i += 1
+        #print(i)
+    if Z == 'X1':         
+        Z = play('player2')
+        if Z == 'O1': i += 1
+        #print(i)
+        continue
+    if Z == 'X2':       
+        Z = play('player1')
+        if Z == 'X1': i += 1
+        continue
+    if Z == 'O1': 
+        Z = play('player1')
+        if Z == 'X1': i +=1
+        print(i)
+        continue
+  
+    if Z == 'O2':       
+        Z = play('player2')
+        if Z == 'O1': i += 1
+        continue
+
+    
+    
