@@ -1,0 +1,15 @@
+# coding: utf-8
+from bokeh.plotting import figure, show, output_file
+import ex35
+
+output_file('plot.html')
+x = []
+y = []
+for key in ex35.c.keys():
+    x.append(key)
+    y.append(ex35.c[key])
+x_categories = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", 'Dec']
+p = figure(x_range = x_categories) # create figure
+p.vbar(x = x, top = y, width = 0.5) # create a histogram
+
+show(p) # show the figure
