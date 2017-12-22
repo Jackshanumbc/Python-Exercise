@@ -29,7 +29,7 @@ if __name__ == '__main__':
     y2 = 0
     tar_word = random_choice('sowpods.txt')
     size = len(tar_word)
-    print(tar_word)
+    #print(tar_word)
     welcome(size)
     result = ['-']*size
     while True:
