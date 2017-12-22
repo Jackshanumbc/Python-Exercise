@@ -1,0 +1,31 @@
+# coding: utf-8
+import ex33
+import json
+
+def update(key, value):
+    if key in dic.keys(): 
+        
+        return False
+    else:
+        dic[key] = value
+    with open('data.json', 'w', encoding='utf-8') as w:
+        json.dump(dic, w)
+    return True
+if __name__ == '__main__':
+    dic = ex33.birthday_dic
+    while True:
+        key = input('Please input the name you want to add:')
+        value = input('Please input his/her birthday as the format (dd/mm/yyyy):')
+        if update(key,value): print('Good! You update the birthday dictionary successfully！')
+        else: print('User, you input an already existing people!')
+        print('The current birthday dictionary is: \n')    
+        with open('data.json', 'r', encoding='utf-8') as r:
+            info = json.load(r)    
+        for key, value in info.items():
+            print(key,'\t\t',value)
+        choice = input('You could choose to stop or continue to add by input 0 or 1:')
+        if int(choice) == 0: 
+            print('Stopping adding')
+            break
+        else: continue
+    
