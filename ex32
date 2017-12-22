@@ -1,0 +1,51 @@
+# coding:utf-8
+from ex30 import random_choice
+
+def welcome(size):
+    print('Welcome to Hangman!\n',' '.join(['-']*size))
+    return ' '.join(['-']*size)
+def guess ():
+    fh = input('Enter your letter:')
+    return fh
+def check (tar_word, fh, result):
+    y = 0
+    z = len(tar_word)
+    for i in range(z):
+        if result[i] == fh: 
+            print('User, you input a letter you guessed before!')
+            return z+1
+        if tar_word[i] == fh: 
+            for x in range(i,z):
+                if tar_word[x] == fh: 
+                    y = y + 1
+                    result[x] = fh
+            return y
+    print('User, you input a nonexisting letter!')
+    return z+1
+
+if __name__ == '__main__':
+    y = 0
+    y1 = 0
+    y2 = 0
+    tar_word = random_choice('sowpods.txt')
+    size = len(tar_word)
+    #print(tar_word)
+    welcome(size)
+    result = ['-']*size
+    while True:
+        fh = guess().upper()
+        z = check(tar_word, fh, result)
+        print(' '.join(result)) 
+        if  z != size+1:             
+            y = y + z
+            y2 = y2+1
+            #print(y,y2)
+        else:
+            y1 = y1 + int(z /(size+1))
+            if y1 < 6:
+                print('User, you just have ',6-y1,'times left')
+            else: break
+        if y == size: 
+            print('You guessed the entire right word and guessed ', y2+y1, 'times')
+            break
+    print('The right word is: ', ''.join(tar_word))
