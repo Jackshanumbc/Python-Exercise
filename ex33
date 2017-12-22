@@ -1,0 +1,13 @@
+# coding: utf-8
+birthday_dic = {'Xiaoming': '02/22/1990', 'Yangming Wang': '01/01/1990', 'Zhuxiao Li': '04/08/2012', 'Hailun Sun': \
+                '03/06/1989'}
+def check_birth(name):
+    return birthday_dic.get(name, 'None exist')
+
+if __name__ == '__main__':
+    print('This birthday check function supports to check the following people’s birthday:')
+    for key in birthday_dic: print(key)
+    name = input('\nPlease input the name you want to check his/her birthday:')
+    print('Your checking result: ', check_birth(name))
+    
+    
